@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A101 /* LullabyHavenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A001 /* LullabyHavenApp.swift */; };
+		A102 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A002 /* ContentView.swift */; };
+		A103 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A003 /* Sound.swift */; };
+		A104 /* SoundMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = A004 /* SoundMix.swift */; };
+		A105 /* SleepTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A005 /* SleepTimer.swift */; };
+		A106 /* SleepSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A006 /* SleepSession.swift */; };
+		A107 /* FavoriteSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A007 /* FavoriteSound.swift */; };
+		A108 /* AudioPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008 /* AudioPlayerService.swift */; };
+		A109 /* SoundLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A009 /* SoundLibrary.swift */; };
+		A110 /* SleepTimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A010 /* SleepTimerService.swift */; };
+		A111 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011 /* NotificationManager.swift */; };
+		A112 /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012 /* StoreKitManager.swift */; };
+		A113 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013 /* PlayerViewModel.swift */; };
+		A114 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A014 /* LibraryViewModel.swift */; };
+		A115 /* MixerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A015 /* MixerViewModel.swift */; };
+		A116 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A016 /* TimerViewModel.swift */; };
+		A117 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017 /* HomeView.swift */; };
+		A118 /* SoundLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018 /* SoundLibraryView.swift */; };
+		A119 /* SoundPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019 /* SoundPlayerView.swift */; };
+		A120 /* MixerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020 /* MixerView.swift */; };
+		A121 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A021 /* FavoritesView.swift */; };
+		A122 /* NightModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022 /* NightModeView.swift */; };
+		A123 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A023 /* TimerView.swift */; };
+		A124 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A024 /* PaywallView.swift */; };
+		A125 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025 /* OnboardingView.swift */; };
+		A126 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A026 /* SettingsView.swift */; };
+		A127 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027 /* DesignSystem.swift */; };
+		A128 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A028 /* Info.plist */; };
+		A129 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A029 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A001 /* LullabyHavenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LullabyHavenApp.swift; sourceTree = "<group>"; };
+		A002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A003 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		A004 /* SoundMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundMix.swift; sourceTree = "<group>"; };
+		A005 /* SleepTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimer.swift; sourceTree = "<group>"; };
+		A006 /* SleepSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSession.swift; sourceTree = "<group>"; };
+		A007 /* FavoriteSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSound.swift; sourceTree = "<group>"; };
+		A008 /* AudioPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerService.swift; sourceTree = "<group>"; };
+		A009 /* SoundLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLibrary.swift; sourceTree = "<group>"; };
+		A010 /* SleepTimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerService.swift; sourceTree = "<group>"; };
+		A011 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		A012 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		A013 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		A014 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
+		A015 /* MixerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerViewModel.swift; sourceTree = "<group>"; };
+		A016 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		A017 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A018 /* SoundLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLibraryView.swift; sourceTree = "<group>"; };
+		A019 /* SoundPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayerView.swift; sourceTree = "<group>"; };
+		A020 /* MixerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerView.swift; sourceTree = "<group>"; };
+		A021 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		A022 /* NightModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightModeView.swift; sourceTree = "<group>"; };
+		A023 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		A024 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		A025 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		A026 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A027 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		A028 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A029 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A030 /* LullabyHaven.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LullabyHaven.entitlements; sourceTree = "<group>"; };
+		APPTARGET /* LullabyHaven.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LullabyHaven.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FWKBUILD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		MAINGROUP /* LullabyHaven */ = {
+			isa = PBXGroup;
+			children = (
+				APPGROUP /* LullabyHaven */,
+				PRODGROUP /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		PRODGROUP /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				APPTARGET /* LullabyHaven.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		APPGROUP /* LullabyHaven */ = {
+			isa = PBXGroup;
+			children = (
+				A001 /* LullabyHavenApp.swift */,
+				A002 /* ContentView.swift */,
+				A030 /* LullabyHaven.entitlements */,
+				A028 /* Info.plist */,
+				MODELS /* Models */,
+				SERVICES /* Services */,
+				VIEWMODELS /* ViewModels */,
+				VIEWS /* Views */,
+				RESOURCES /* Resources */,
+			);
+			path = LullabyHaven;
+			sourceTree = "<group>";
+		};
+		MODELS /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A003 /* Sound.swift */,
+				A004 /* SoundMix.swift */,
+				A005 /* SleepTimer.swift */,
+				A006 /* SleepSession.swift */,
+				A007 /* FavoriteSound.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		SERVICES /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A008 /* AudioPlayerService.swift */,
+				A009 /* SoundLibrary.swift */,
+				A010 /* SleepTimerService.swift */,
+				A011 /* NotificationManager.swift */,
+				A012 /* StoreKitManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		VIEWMODELS /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A013 /* PlayerViewModel.swift */,
+				A014 /* LibraryViewModel.swift */,
+				A015 /* MixerViewModel.swift */,
+				A016 /* TimerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		VIEWS /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A017 /* HomeView.swift */,
+				A018 /* SoundLibraryView.swift */,
+				A019 /* SoundPlayerView.swift */,
+				A020 /* MixerView.swift */,
+				A021 /* FavoritesView.swift */,
+				A022 /* NightModeView.swift */,
+				A023 /* TimerView.swift */,
+				A024 /* PaywallView.swift */,
+				A025 /* OnboardingView.swift */,
+				A026 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		RESOURCES /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A027 /* DesignSystem.swift */,
+				A029 /* GoogleService-Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		TARGET /* LullabyHaven */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BUILDCONFIGS /* Build configuration list for PBXNativeTarget "LullabyHaven" */;
+			buildPhases = (
+				SOURCES /* Sources */,
+				FWKBUILD /* Frameworks */,
+				RESOURCES /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LullabyHaven;
+			productName = LullabyHaven;
+			productReference = APPTARGET /* LullabyHaven.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		PROJECT /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					TARGET = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = PROJCONFIGS /* Build configuration list for PBXProject "LullabyHaven" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = MAINGROUP /* LullabyHaven */;
+			productRefGroup = PRODGROUP /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				TARGET /* LullabyHaven */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		RESOURCES /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A129 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		SOURCES /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A101 /* LullabyHavenApp.swift in Sources */,
+				A102 /* ContentView.swift in Sources */,
+				A103 /* Sound.swift in Sources */,
+				A104 /* SoundMix.swift in Sources */,
+				A105 /* SleepTimer.swift in Sources */,
+				A106 /* SleepSession.swift in Sources */,
+				A107 /* FavoriteSound.swift in Sources */,
+				A108 /* AudioPlayerService.swift in Sources */,
+				A109 /* SoundLibrary.swift in Sources */,
+				A110 /* SleepTimerService.swift in Sources */,
+				A111 /* NotificationManager.swift in Sources */,
+				A112 /* StoreKitManager.swift in Sources */,
+				A113 /* PlayerViewModel.swift in Sources */,
+				A114 /* LibraryViewModel.swift in Sources */,
+				A115 /* MixerViewModel.swift in Sources */,
+				A116 /* TimerViewModel.swift in Sources */,
+				A117 /* HomeView.swift in Sources */,
+				A118 /* SoundLibraryView.swift in Sources */,
+				A119 /* SoundPlayerView.swift in Sources */,
+				A120 /* MixerView.swift in Sources */,
+				A121 /* FavoritesView.swift in Sources */,
+				A122 /* NightModeView.swift in Sources */,
+				A123 /* TimerView.swift in Sources */,
+				A124 /* PaywallView.swift in Sources */,
+				A125 /* OnboardingView.swift in Sources */,
+				A126 /* SettingsView.swift in Sources */,
+				A127 /* DesignSystem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DEBUG /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_CYCLE = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		RELEASE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_CYCLE = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		TARGETDEBUG /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LullabyHaven/LullabyHaven.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = LullabyHaven/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appfactory.lullabyhaven";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		TARGETRELEASE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LullabyHaven/LullabyHaven.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = LullabyHaven/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appfactory.lullabyhaven";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BUILDCONFIGS /* Build configuration list for PBXNativeTarget "LullabyHaven" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				TARGETDEBUG /* Debug */,
+				TARGETRELEASE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		PROJCONFIGS /* Build configuration list for PBXProject "LullabyHaven" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEBUG /* Debug */,
+				RELEASE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = PROJECT /* Project object */;
+}

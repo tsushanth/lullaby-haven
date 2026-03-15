@@ -1,0 +1,149 @@
+{
+  "identifier" : "com.appfactory.lullabyhaven.storekit",
+  "nonConsumableProducts" : [
+    {
+      "displayPrice" : "19.99",
+      "familyShareable" : true,
+      "internalID" : "D1E2F3A4-0001-0000-0000-000000000001",
+      "localizations" : [
+        {
+          "description" : "Full access to all features of Lullaby Haven forever",
+          "displayName" : "Lifetime Premium",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.appfactory.lullabyhaven.premium.lifetime",
+      "referenceName" : "Lifetime Premium",
+      "type" : "NonConsumable"
+    }
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "123456789",
+    "_developerTeamID" : "TEAMPLACEHOLDER",
+    "_lastSynchronizedDate" : "2025-01-01T00:00:00Z",
+    "_storefront" : "USA",
+    "_storefrontCountryCode" : "USA",
+    "askToBuyEnabled" : false,
+    "failTransactionsEnabled" : false,
+    "locale" : "en_US",
+    "simulatesAskToBuyInSandbox" : false,
+    "storefront" : "USA",
+    "storefrontCountryCode" : "USA"
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "SUBGROUP001",
+      "localizations" : [
+        {
+          "customAppName" : "Lullaby Haven",
+          "displayName" : "Lullaby Haven Premium",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "Lullaby Haven Premium",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "D1E2F3A4-0001-0000-0000-000000000002",
+          "introductoryOffer" : {
+            "displayPrice" : "0.00",
+            "paymentMode" : "FREE_TRIAL",
+            "period" : 1,
+            "periodUnit" : "WEEK",
+            "type" : "INTRODUCTORY_OFFER"
+          },
+          "localizations" : [
+            {
+              "description" : "Full access to all premium sleep sounds, mixer, and timer features",
+              "displayName" : "Weekly Premium",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.appfactory.lullabyhaven.premium.weekly",
+          "referenceName" : "Weekly Premium",
+          "recurringSubscriptionPeriod" : "P1W",
+          "subscriptionGroupID" : "SUBGROUP001",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "7.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "D1E2F3A4-0001-0000-0000-000000000003",
+          "introductoryOffer" : {
+            "displayPrice" : "0.00",
+            "paymentMode" : "FREE_TRIAL",
+            "period" : 1,
+            "periodUnit" : "WEEK",
+            "type" : "INTRODUCTORY_OFFER"
+          },
+          "localizations" : [
+            {
+              "description" : "Full access to all premium sleep sounds, mixer, and timer features",
+              "displayName" : "Monthly Premium",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.appfactory.lullabyhaven.premium.monthly",
+          "referenceName" : "Monthly Premium",
+          "recurringSubscriptionPeriod" : "P1M",
+          "subscriptionGroupID" : "SUBGROUP001",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "39.99",
+          "familyShareable" : true,
+          "groupNumber" : 3,
+          "internalID" : "D1E2F3A4-0001-0000-0000-000000000004",
+          "introductoryOffer" : {
+            "displayPrice" : "0.00",
+            "paymentMode" : "FREE_TRIAL",
+            "period" : 1,
+            "periodUnit" : "WEEK",
+            "type" : "INTRODUCTORY_OFFER"
+          },
+          "localizations" : [
+            {
+              "description" : "Full access to all premium sleep sounds, mixer, and timer features — best value!",
+              "displayName" : "Yearly Premium",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.appfactory.lullabyhaven.premium.yearly",
+          "referenceName" : "Yearly Premium",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "subscriptionGroupID" : "SUBGROUP001",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0,
+    "patch" : 1
+  }
+}
