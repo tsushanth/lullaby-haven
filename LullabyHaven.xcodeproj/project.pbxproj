@@ -34,7 +34,6 @@
 		A125 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025 /* OnboardingView.swift */; };
 		A126 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A026 /* SettingsView.swift */; };
 		A127 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027 /* DesignSystem.swift */; };
-		A128 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A028 /* Info.plist */; };
 		A129 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A029 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -83,22 +82,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		MAINGROUP /* LullabyHaven */ = {
-			isa = PBXGroup;
-			children = (
-				APPGROUP /* LullabyHaven */,
-				PRODGROUP /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		PRODGROUP /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				APPTARGET /* LullabyHaven.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		APPGROUP /* LullabyHaven */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +98,14 @@
 			path = LullabyHaven;
 			sourceTree = "<group>";
 		};
+		MAINGROUP = {
+			isa = PBXGroup;
+			children = (
+				APPGROUP /* LullabyHaven */,
+				PRODGROUP /* Products */,
+			);
+			sourceTree = "<group>";
+		};
 		MODELS /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +116,23 @@
 				A007 /* FavoriteSound.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		PRODGROUP /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				APPTARGET /* LullabyHaven.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		RESOURCES /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A027 /* DesignSystem.swift */,
+				A029 /* GoogleService-Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		SERVICES /* Services */ = {
@@ -167,15 +175,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		RESOURCES /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A027 /* DesignSystem.swift */,
-				A029 /* GoogleService-Info.plist */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -185,7 +184,7 @@
 			buildPhases = (
 				SOURCES /* Sources */,
 				FWKBUILD /* Frameworks */,
-				RESOURCES /* Resources */,
+				RESBUILDPHASE /* Resources */,
 			);
 			buildRules = (
 			);
@@ -219,7 +218,7 @@
 				en,
 				Base,
 			);
-			mainGroup = MAINGROUP /* LullabyHaven */;
+			mainGroup = MAINGROUP;
 			productRefGroup = PRODGROUP /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -230,7 +229,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		RESOURCES /* Resources */ = {
+		RESBUILDPHASE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -404,6 +403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 7RS696YC75;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = LullabyHaven/Info.plist;
@@ -413,7 +413,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.appfactory.lullabyhaven";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.lullabyhaven;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.9;
@@ -430,6 +430,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 7RS696YC75;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = LullabyHaven/Info.plist;
@@ -439,7 +440,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.appfactory.lullabyhaven";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.lullabyhaven;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.9;
