@@ -1,0 +1,10 @@
+# Deliver configuration for LullabyHaven
+app_identifier "com.appfactory.lullabyhaven"
+screenshots_path "./fastlane/screenshots"
+metadata_path "./fastlane/metadata"
+overwrite_screenshots true
+skip_metadata false
+skip_binary_upload true
+run_precheck_before_submit false
+force true
+submit_for_review false

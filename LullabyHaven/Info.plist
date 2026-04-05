@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
 	<key>CFBundleDisplayName</key>
 	<string>Lullaby Haven</string>
 	<key>CFBundleExecutable</key>
@@ -19,7 +21,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>14</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>
@@ -54,6 +56,21 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 
+	<!-- Allow HTTP for Chatterbox TTS on Hetzner -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>178.156.192.31</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+
 	<!-- Background Audio Mode -->
 	<key>UIBackgroundModes</key>
 	<array>
@@ -62,7 +79,7 @@
 
 	<!-- Privacy descriptions -->
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Lullaby Haven does not use the microphone.</string>
+	<string>Lullaby Haven uses the microphone to record your voice for personalized lullabies.</string>
 
 	<!-- Minimum iOS version -->
 	<key>MinimumOSVersion</key>

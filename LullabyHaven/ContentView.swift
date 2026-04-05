@@ -11,6 +11,13 @@ struct ContentView: View {
     @AppStorage("lh.hasCompletedOnboarding") private var hasCompletedOnboarding: Bool = false
     @State private var selectedTab: Tab = .home
 
+    init() {
+        // FASTLANE_SNAPSHOT: skip onboarding for automated screenshots
+        if ProcessInfo.processInfo.arguments.contains("-FASTLANE_SNAPSHOT") {
+            UserDefaults.standard.set(true, forKey: "lh.hasCompletedOnboarding")
+        }
+    }
+
     enum Tab: Int {
         case home, library, mixer, favorites, settings
     }

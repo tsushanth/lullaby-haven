@@ -82,10 +82,12 @@ final class StoreKitManager {
     var currentSubscriptionProductID: String? { purchasedSubscriptions.first }
 
     init() {
-        updateListenerTask = listenForTransactions()
-        Task {
-            await loadProducts()
-            await updatePurchasedProducts()
+        // Defer StoreKit operations to avoid crashes on simulators with no account
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            self.updateListenerTask = self.listenForTransactions()
+            await self.loadProducts()
+            await self.updatePurchasedProducts()
         }
     }
 
@@ -178,14 +180,18 @@ final class StoreKitManager {
     func updatePurchasedProducts() async {
         var subs: Set<String> = []
         var nonCons: Set<String> = []
-        for await result in Transaction.currentEntitlements {
-            guard let transaction = try? checkVerified(result) else { continue }
-            guard transaction.revocationDate == nil else { continue }
-            switch transaction.productType {
-            case .autoRenewable, .nonRenewable: subs.insert(transaction.productID)
-            case .nonConsumable:                nonCons.insert(transaction.productID)
-            default: break
+        do {
+            for await result in Transaction.currentEntitlements {
+                guard let transaction = try? checkVerified(result) else { continue }
+                guard transaction.revocationDate == nil else { continue }
+                switch transaction.productType {
+                case .autoRenewable, .nonRenewable: subs.insert(transaction.productID)
+                case .nonConsumable:                nonCons.insert(transaction.productID)
+                default: break
+                }
             }
+        } catch {
+            print("[StoreKitManager] Error enumerating entitlements: \(error)")
         }
         purchasedSubscriptions = subs
         purchasedNonConsumables = nonCons
@@ -194,12 +200,16 @@ final class StoreKitManager {
     // MARK: - Transaction Listener
     private func listenForTransactions() -> Task<Void, Error> {
         Task.detached { [weak self] in
-            for await result in Transaction.updates {
-                guard let self else { continue }
-                if case .verified(let tx) = result {
-                    await self.updatePurchasedProducts()
-                    await tx.finish()
+            do {
+                for await result in Transaction.updates {
+                    guard let self else { continue }
+                    if case .verified(let tx) = result {
+                        await self.updatePurchasedProducts()
+                        await tx.finish()
+                    }
                 }
+            } catch {
+                print("[StoreKitManager] Transaction listener error: \(error)")
             }
         }
     }

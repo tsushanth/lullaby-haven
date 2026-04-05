@@ -14,27 +14,51 @@ struct MixerView: View {
 
     @State private var mixerVM = MixerViewModel()
     @State private var playerVM = PlayerViewModel()
+    @State private var voiceService = VoiceGenerationService.shared
     @State private var showSoundPicker = false
     @State private var showSaveMixAlert = false
     @State private var showPaywall = false
+    @State private var showVoiceRecording = false
     @State private var mixNameInput = ""
 
     var body: some View {
         NavigationStack {
-            Group {
-                if storeKit.isPremium {
-                    mixerContent
-                } else {
-                    premiumGate
+            ScrollView {
+                VStack(spacing: 20) {
+                    // My Voice section (always visible)
+                    myVoiceSection
+
+                    if storeKit.isPremium {
+                        // Active Tracks
+                        activeTracksSection
+
+                        // Add Sound
+                        if mixerVM.canAddMore {
+                            addSoundButton
+                        }
+
+                        // Playback Controls
+                        playbackControls
+
+                        // Saved Mixes
+                        if !mixerVM.savedMixes.isEmpty {
+                            savedMixesSection
+                        }
+                    } else {
+                        premiumGate
+                    }
                 }
+                .padding()
+                .padding(.bottom, 60)
             }
             .background(Color.lhBackground)
-            .navigationTitle("Sound Mixer")
+            .navigationTitle("Mixer")
             .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
             mixerVM.setModelContext(modelContext)
             playerVM.setModelContext(modelContext)
+            Task { await voiceService.loadVoices() }
         }
         .alert("Save Mix", isPresented: $showSaveMixAlert) {
             TextField("Mix name", text: $mixNameInput)
@@ -47,32 +71,125 @@ struct MixerView: View {
         .sheet(isPresented: $showSoundPicker) {
             SoundPickerSheet(mixerVM: mixerVM)
         }
+        .fullScreenCover(isPresented: $showVoiceRecording) {
+            VoiceRecordingView {
+                Task { await voiceService.loadVoices() }
+            }
+        }
         .sheet(isPresented: $showPaywall) { PaywallView() }
     }
 
-    // MARK: - Mixer Content
-    private var mixerContent: some View {
-        ScrollView {
-            VStack(spacing: 20) {
-                // Active Tracks
-                activeTracksSection
+    // MARK: - My Voice
+    private var myVoiceSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            // Section: Standard Voices
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Read Lullabies Aloud")
+                    .font(.headline)
+                    .foregroundStyle(Color.lhPrimary)
 
-                // Add Sound
-                if mixerVM.canAddMore {
-                    addSoundButton
-                }
+                Text("Choose a voice to read lullabies to your little one.")
+                    .font(.caption)
+                    .foregroundStyle(Color.lhSecondary)
 
-                // Playback Controls
-                playbackControls
-
-                // Saved Mixes
-                if !mixerVM.savedMixes.isEmpty {
-                    savedMixesSection
+                ForEach(StandardVoice.all) { stdVoice in
+                    NavigationLink {
+                        LullabyGeneratorView(voice: .standard(stdVoice))
+                    } label: {
+                        voiceRow(
+                            icon: "speaker.wave.2.fill",
+                            name: stdVoice.name,
+                            detail: stdVoice.style,
+                            trailing: "Listen"
+                        )
+                    }
+                    .buttonStyle(.plain)
                 }
             }
-            .padding()
-            .padding(.bottom, 60)
+
+            Divider().padding(.vertical, 4)
+
+            // Section: Record Your Voice
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Your Voice")
+                    .font(.headline)
+                    .foregroundStyle(Color.lhPrimary)
+
+                Text("Record your voice and hear lullabies read as you.")
+                    .font(.caption)
+                    .foregroundStyle(Color.lhSecondary)
+
+                Button { showVoiceRecording = true } label: {
+                    HStack(spacing: LHSpacing.sm) {
+                        Image(systemName: "mic.fill")
+                            .font(.title3)
+                        Text("Record My Voice")
+                            .font(.subheadline.bold())
+                    }
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+                    .background(Color.lhAccent)
+                    .clipShape(RoundedRectangle(cornerRadius: LHRadius.md))
+                }
+
+                if voiceService.isLoading {
+                    HStack {
+                        Spacer()
+                        ProgressView().tint(Color.lhAccent)
+                        Spacer()
+                    }
+                    .padding(.vertical, 4)
+                }
+
+                ForEach(voiceService.voices) { voice in
+                    NavigationLink {
+                        LullabyGeneratorView(voice: .cloned(voice))
+                    } label: {
+                        voiceRow(
+                            icon: "waveform.and.mic",
+                            name: voice.name,
+                            detail: voice.durationSec.map { "\(Int($0))s recorded" } ?? "Your voice",
+                            trailing: "Listen"
+                        )
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
         }
+        .padding()
+        .background(Color.lhCard)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+
+    private func voiceRow(icon: String, name: String, detail: String, trailing: String) -> some View {
+        HStack(spacing: LHSpacing.md) {
+            ZStack {
+                Circle()
+                    .fill(Color.lhAccent.opacity(0.15))
+                    .frame(width: 40, height: 40)
+                Image(systemName: icon)
+                    .foregroundStyle(Color.lhAccent)
+            }
+            VStack(alignment: .leading, spacing: 2) {
+                Text(name)
+                    .font(.subheadline.bold())
+                    .foregroundStyle(Color.lhPrimary)
+                Text(detail)
+                    .font(.caption)
+                    .foregroundStyle(Color.lhSecondary)
+            }
+            Spacer()
+            Text(trailing)
+                .font(.caption.bold())
+                .foregroundStyle(Color.lhAccent)
+            Image(systemName: "chevron.right")
+                .font(.caption)
+                .foregroundStyle(Color.lhSecondary)
+        }
+        .padding(LHSpacing.sm)
+        .background(Color.lhBackground)
+        .clipShape(RoundedRectangle(cornerRadius: LHRadius.sm))
     }
 
     // MARK: - Active Tracks

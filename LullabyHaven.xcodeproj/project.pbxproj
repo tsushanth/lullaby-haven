@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EFAEF337DB56610FD944124 /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB55121D718304144EDBABB /* ScreenshotTests.swift */; };
+		7DB7E570EBD0953BE75C0B98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 955A408F93EA256393EB5E6F /* Foundation.framework */; };
+		99511B8B647FA2B144481B4B /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F074A781039CD77F83582BD /* SnapshotHelper.swift */; };
 		A101 /* LullabyHavenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A001 /* LullabyHavenApp.swift */; };
 		A102 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A002 /* ContentView.swift */; };
 		A103 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A003 /* Sound.swift */; };
@@ -35,9 +38,28 @@
 		A126 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A026 /* SettingsView.swift */; };
 		A127 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A027 /* DesignSystem.swift */; };
 		A129 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A029 /* GoogleService-Info.plist */; };
+		A130 /* AudioRecorderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A040 /* AudioRecorderService.swift */; };
+		A131 /* VoiceGenerationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041 /* VoiceGenerationService.swift */; };
+		A132 /* MyVoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042 /* MyVoiceView.swift */; };
+		A133 /* VoiceRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A043 /* VoiceRecordingView.swift */; };
+		A134 /* LullabyGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044 /* LullabyGeneratorView.swift */; };
+		A135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A050 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5887BDA605D494E0B07B4B13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = PROJECT /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = TARGET;
+			remoteInfo = LullabyHaven;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		03087B604FE1A3EA0679A9F6 /* LullabyHavenUITests */ = {isa = PBXFileReference; includeInIndex = 0; path = LullabyHavenUITests; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F074A781039CD77F83582BD /* SnapshotHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		955A408F93EA256393EB5E6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		A001 /* LullabyHavenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LullabyHavenApp.swift; sourceTree = "<group>"; };
 		A002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A003 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
@@ -68,10 +90,25 @@
 		A028 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A029 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A030 /* LullabyHaven.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LullabyHaven.entitlements; sourceTree = "<group>"; };
+		A040 /* AudioRecorderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderService.swift; sourceTree = "<group>"; };
+		A041 /* VoiceGenerationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceGenerationService.swift; sourceTree = "<group>"; };
+		A042 /* MyVoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVoiceView.swift; sourceTree = "<group>"; };
+		A043 /* VoiceRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecordingView.swift; sourceTree = "<group>"; };
+		A044 /* LullabyGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LullabyGeneratorView.swift; sourceTree = "<group>"; };
+		A050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		APPTARGET /* LullabyHaven.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LullabyHaven.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCB55121D718304144EDBABB /* ScreenshotTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenshotTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8C67FEE885FED46F59483E2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DB7E570EBD0953BE75C0B98 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FWKBUILD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -82,10 +119,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		152B117E5F45D981CFC2FC3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA8BD49BEF130135C0EB0634 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		33D408ED894096EDEECBA72C /* LullabyHavenUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6F074A781039CD77F83582BD /* SnapshotHelper.swift */,
+				FCB55121D718304144EDBABB /* ScreenshotTests.swift */,
+			);
+			name = LullabyHavenUITests;
+			path = LullabyHavenUITests;
+			sourceTree = "<group>";
+		};
+		A045 /* MyVoice */ = {
+			isa = PBXGroup;
+			children = (
+				A042 /* MyVoiceView.swift */,
+				A043 /* VoiceRecordingView.swift */,
+				A044 /* LullabyGeneratorView.swift */,
+			);
+			path = MyVoice;
+			sourceTree = "<group>";
+		};
 		APPGROUP /* LullabyHaven */ = {
 			isa = PBXGroup;
 			children = (
 				A001 /* LullabyHavenApp.swift */,
+				A050 /* Assets.xcassets */,
 				A002 /* ContentView.swift */,
 				A030 /* LullabyHaven.entitlements */,
 				A028 /* Info.plist */,
@@ -98,11 +164,21 @@
 			path = LullabyHaven;
 			sourceTree = "<group>";
 		};
+		FA8BD49BEF130135C0EB0634 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				955A408F93EA256393EB5E6F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		MAINGROUP = {
 			isa = PBXGroup;
 			children = (
 				APPGROUP /* LullabyHaven */,
 				PRODGROUP /* Products */,
+				152B117E5F45D981CFC2FC3B /* Frameworks */,
+				33D408ED894096EDEECBA72C /* LullabyHavenUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				APPTARGET /* LullabyHaven.app */,
+				03087B604FE1A3EA0679A9F6 /* LullabyHavenUITests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +220,8 @@
 				A010 /* SleepTimerService.swift */,
 				A011 /* NotificationManager.swift */,
 				A012 /* StoreKitManager.swift */,
+				A040 /* AudioRecorderService.swift */,
+				A041 /* VoiceGenerationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -171,6 +250,7 @@
 				A024 /* PaywallView.swift */,
 				A025 /* OnboardingView.swift */,
 				A026 /* SettingsView.swift */,
+				A045 /* MyVoice */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +258,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		126B20E5B3F02C4F755D2A96 /* LullabyHavenUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B0222A36D612E701D6C0B2E /* Build configuration list for PBXNativeTarget "LullabyHavenUITests" */;
+			buildPhases = (
+				9160D6F620BA392D6F632B0A /* Sources */,
+				8C67FEE885FED46F59483E2F /* Frameworks */,
+				EA7C727E93B5288A399CF217 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5C1C1E509158E7CB7E86592A /* PBXTargetDependency */,
+			);
+			name = LullabyHavenUITests;
+			productName = LullabyHavenUITests;
+			productReference = 03087B604FE1A3EA0679A9F6 /* LullabyHavenUITests */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		TARGET /* LullabyHaven */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BUILDCONFIGS /* Build configuration list for PBXNativeTarget "LullabyHaven" */;
@@ -224,15 +322,24 @@
 			projectRoot = "";
 			targets = (
 				TARGET /* LullabyHaven */,
+				126B20E5B3F02C4F755D2A96 /* LullabyHavenUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EA7C727E93B5288A399CF217 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		RESBUILDPHASE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A135 /* Assets.xcassets in Resources */,
 				A129 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,10 +347,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9160D6F620BA392D6F632B0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99511B8B647FA2B144481B4B /* SnapshotHelper.swift in Sources */,
+				1EFAEF337DB56610FD944124 /* ScreenshotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		SOURCES /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A130 /* AudioRecorderService.swift in Sources */,
+				A131 /* VoiceGenerationService.swift in Sources */,
+				A132 /* MyVoiceView.swift in Sources */,
+				A133 /* VoiceRecordingView.swift in Sources */,
+				A134 /* LullabyGeneratorView.swift in Sources */,
 				A101 /* LullabyHavenApp.swift in Sources */,
 				A102 /* ContentView.swift in Sources */,
 				A103 /* Sound.swift in Sources */,
@@ -276,7 +397,47 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5C1C1E509158E7CB7E86592A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LullabyHaven;
+			target = TARGET /* LullabyHaven */;
+			targetProxy = 5887BDA605D494E0B07B4B13 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		5BFA27CFC2A5E4A432EFB92C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RS696YC75;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.lullabyhaven.UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = LullabyHaven;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8A60ACAAE0A859A377171E69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RS696YC75;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.lullabyhaven.UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = LullabyHaven;
+			};
+			name = Debug;
+		};
 		DEBUG /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -401,7 +562,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LullabyHaven/LullabyHaven.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 7RS696YC75;
 				ENABLE_PREVIEWS = YES;
@@ -428,7 +589,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LullabyHaven/LullabyHaven.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 7RS696YC75;
 				ENABLE_PREVIEWS = YES;
@@ -451,6 +612,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9B0222A36D612E701D6C0B2E /* Build configuration list for PBXNativeTarget "LullabyHavenUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BFA27CFC2A5E4A432EFB92C /* Release */,
+				8A60ACAAE0A859A377171E69 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BUILDCONFIGS /* Build configuration list for PBXNativeTarget "LullabyHaven" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftData
 
 // MARK: - Sound Category
 enum SoundCategory: String, CaseIterable, Codable {
@@ -47,23 +46,16 @@ enum SoundType: String, Codable {
     case lullaby     // Lullaby music track
 }
 
-// MARK: - Sound Model
-@Model
+// MARK: - Sound (data-only, not persisted)
 final class Sound {
-    @Attribute(.unique) var id: String
-    var name: String
-    var categoryRaw: String
-    var typeRaw: String
-    var fileName: String?       // nil for generated sounds
-    var isPremium: Bool
-    var isFavorite: Bool
-    var playCount: Int
-    var lastPlayedAt: Date?
-    var createdAt: Date
-
-    // Generator parameters (for generated sounds)
-    var noiseTypeRaw: String?   // "white", "pink", "brown"
-    var baseFrequency: Double   // Hz, used for some generated sounds
+    let id: String
+    let name: String
+    let categoryRaw: String
+    let typeRaw: String
+    let fileName: String?
+    let isPremium: Bool
+    let noiseTypeRaw: String?
+    let baseFrequency: Double
 
     init(
         id: String,
@@ -81,10 +73,6 @@ final class Sound {
         self.typeRaw = type.rawValue
         self.fileName = fileName
         self.isPremium = isPremium
-        self.isFavorite = false
-        self.playCount = 0
-        self.lastPlayedAt = nil
-        self.createdAt = Date()
         self.noiseTypeRaw = noiseType
         self.baseFrequency = baseFrequency
     }

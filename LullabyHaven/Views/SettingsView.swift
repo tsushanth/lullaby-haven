@@ -116,10 +116,10 @@ struct SettingsView: View {
                         Text("1.0.0")
                             .foregroundStyle(Color.lhSecondary)
                     }
-                    Link(destination: URL(string: "https://appfactory.app/privacy")!) {
+                    Link(destination: URL(string: "https://kreativekoala.llc/privacy")!) {
                         Label("Privacy Policy", systemImage: "lock.shield")
                     }
-                    Link(destination: URL(string: "https://appfactory.app/terms")!) {
+                    Link(destination: URL(string: "https://kreativekoala.llc/terms")!) {
                         Label("Terms of Service", systemImage: "doc.text")
                     }
                     if let scene = UIApplication.shared.connectedScenes

@@ -200,8 +200,8 @@ struct PaywallView: View {
                     .foregroundStyle(Color.lhGold)
             }
             HStack(spacing: 16) {
-                Link("Terms", destination: URL(string: "https://appfactory.app/terms")!)
-                Link("Privacy", destination: URL(string: "https://appfactory.app/privacy")!)
+                Link("Terms", destination: URL(string: "https://kreativekoala.llc/terms")!)
+                Link("Privacy", destination: URL(string: "https://kreativekoala.llc/privacy")!)
             }
             .font(.caption)
             .foregroundStyle(.white.opacity(0.35))
