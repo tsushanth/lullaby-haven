@@ -62,6 +62,9 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             _ = await NotificationManager.shared.requestPermission()
         }
 
+        // Register Apple Search Ads attribution token (one-time, fire-and-forget)
+        AttributionService.shared.trackAttribution()
+
         return true
     }
 

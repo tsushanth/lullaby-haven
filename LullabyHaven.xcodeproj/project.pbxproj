@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1EFAEF337DB56610FD944124 /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB55121D718304144EDBABB /* ScreenshotTests.swift */; };
+		66AF6746AC74FA3D08A0C6D8 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1825E7AB675057153B29A27C /* AdServices.framework */; };
 		7DB7E570EBD0953BE75C0B98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 955A408F93EA256393EB5E6F /* Foundation.framework */; };
 		99511B8B647FA2B144481B4B /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F074A781039CD77F83582BD /* SnapshotHelper.swift */; };
 		A101 /* LullabyHavenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A001 /* LullabyHavenApp.swift */; };
@@ -44,6 +45,7 @@
 		A133 /* VoiceRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A043 /* VoiceRecordingView.swift */; };
 		A134 /* LullabyGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A044 /* LullabyGeneratorView.swift */; };
 		A135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A050 /* Assets.xcassets */; };
+		F1F2F39B5021FAFA337057A2 /* AttributionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D890239CE1BCC3519863A07 /* AttributionService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		03087B604FE1A3EA0679A9F6 /* LullabyHavenUITests */ = {isa = PBXFileReference; includeInIndex = 0; path = LullabyHavenUITests; sourceTree = BUILT_PRODUCTS_DIR; };
+		1825E7AB675057153B29A27C /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
+		6D890239CE1BCC3519863A07 /* AttributionService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AttributionService.swift; sourceTree = "<group>"; };
 		6F074A781039CD77F83582BD /* SnapshotHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		955A408F93EA256393EB5E6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		A001 /* LullabyHavenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LullabyHavenApp.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66AF6746AC74FA3D08A0C6D8 /* AdServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				FA8BD49BEF130135C0EB0634 /* iOS */,
+				1825E7AB675057153B29A27C /* AdServices.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -222,6 +228,7 @@
 				A012 /* StoreKitManager.swift */,
 				A040 /* AudioRecorderService.swift */,
 				A041 /* VoiceGenerationService.swift */,
+				6D890239CE1BCC3519863A07 /* AttributionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -392,6 +399,7 @@
 				A125 /* OnboardingView.swift in Sources */,
 				A126 /* SettingsView.swift in Sources */,
 				A127 /* DesignSystem.swift in Sources */,
+				F1F2F39B5021FAFA337057A2 /* AttributionService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
