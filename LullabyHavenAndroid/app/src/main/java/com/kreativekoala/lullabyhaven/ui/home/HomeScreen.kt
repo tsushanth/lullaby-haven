@@ -16,17 +16,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 /**
- * Mirrors iOS Views/HomeView.swift: hub linking to Bedtime Stories and My Voice.
+ * Mirrors iOS Views/HomeView.swift: hub linking to Bedtime Stories.
+ *
+ * The My Voice / voice-cloning card is deliberately NOT shown here — that
+ * feature's backend wiring is a stub (see NavGraph.kt), so it's hidden
+ * entirely rather than shipped as a dead-end or misleading claim.
  *
  * The paywall gate (iOS's "Go Premium" card / launch-cadence triggers) is deliberately NOT
  * wired into this flow for initial launch -- billing is skipped entirely so users get full
- * access to stories and voice features. PaywallScreen.kt still exists (unused) for when
+ * access to stories. PaywallScreen.kt still exists (unused) for when
  * billing is reintroduced; see Routes.kt / NavGraph.kt.
  */
 @Composable
 fun HomeScreen(
-    onOpenStories: () -> Unit,
-    onOpenMyVoice: () -> Unit
+    onOpenStories: () -> Unit
 ) {
     Scaffold(
         topBar = { TopAppBar(title = { Text("Lullaby Haven") }) }
@@ -38,8 +41,7 @@ fun HomeScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            HomeCard("Bedtime Stories", "Calm original stories, narrated in a preset or your own voice.", onOpenStories)
-            HomeCard("My Voice", "Clone your voice and generate lullabies that sound like you.", onOpenMyVoice)
+            HomeCard("Bedtime Stories", "Calm original stories, narrated and ready to play.", onOpenStories)
         }
     }
 }
