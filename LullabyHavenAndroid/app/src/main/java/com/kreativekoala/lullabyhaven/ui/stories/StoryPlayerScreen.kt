@@ -8,10 +8,17 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.FilledIconButton
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.OutlinedButton
+import com.kreativekoala.lullabyhaven.ui.night.formatCountdown
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -46,6 +53,7 @@ fun StoryPlayerScreen(
     val story = viewModel.story(storyId)
     val playbackState by viewModel.playbackState.collectAsState()
     val narrationState by viewModel.narrationState.collectAsState()
+    val timer by viewModel.timerState.collectAsState()
 
     LaunchedEffect(storyId) {
         viewModel.playStory(storyId)
@@ -57,7 +65,7 @@ fun StoryPlayerScreen(
                 title = { Text(story?.title ?: "Story") },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
                 }
             )
@@ -112,15 +120,38 @@ fun StoryPlayerScreen(
                             .padding(top = 24.dp)
                     )
 
-                    IconButton(
+                    FilledIconButton(
                         onClick = { viewModel.togglePlayPause() },
-                        modifier = Modifier.padding(top = 8.dp)
+                        modifier = Modifier
+                            .padding(top = 8.dp)
+                            .size(72.dp)
                     ) {
                         Icon(
                             imageVector = if (playbackState.isPlaying) Icons.Filled.Pause else Icons.Filled.PlayArrow,
                             contentDescription = if (playbackState.isPlaying) "Pause" else "Play",
-                            modifier = Modifier.padding(8.dp)
+                            modifier = Modifier.size(40.dp)
                         )
+                    }
+                    Text(
+                        if (timer.active) "Sleep timer: ${formatCountdown(timer.remainingMs)}" else "Sleep timer",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(top = 16.dp)
+                    )
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier.padding(top = 8.dp)
+                    ) {
+                        listOf(15, 30, 45).forEach { m ->
+                            FilterChip(
+                                selected = timer.active && timer.totalMs == m * 60_000L,
+                                onClick = { viewModel.startTimer(m) },
+                                label = { Text("$m min") }
+                            )
+                        }
+                        if (timer.active) {
+                            OutlinedButton(onClick = viewModel::cancelTimer) { Text("Off") }
+                        }
                     }
                 }
             }

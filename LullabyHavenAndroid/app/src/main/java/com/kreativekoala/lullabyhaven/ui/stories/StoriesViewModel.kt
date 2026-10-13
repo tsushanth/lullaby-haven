@@ -2,6 +2,8 @@ package com.kreativekoala.lullabyhaven.ui.stories
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.kreativekoala.lullabyhaven.audio.SleepTimer
+import com.kreativekoala.lullabyhaven.audio.SleepTimerState
 import com.kreativekoala.lullabyhaven.data.repository.StoryNarrationRepository
 import com.kreativekoala.lullabyhaven.data.repository.StoryRepository
 import com.kreativekoala.lullabyhaven.domain.model.BedtimeStory
@@ -49,8 +51,13 @@ data class NarrationUiState(
 class StoryPlayerViewModel @Inject constructor(
     private val storyRepository: StoryRepository,
     private val narrationRepository: StoryNarrationRepository,
-    private val playerManager: PlayerManager
+    private val playerManager: PlayerManager,
+    private val sleepTimer: SleepTimer
 ) : ViewModel() {
+
+    val timerState: StateFlow<SleepTimerState> = sleepTimer.state
+    fun startTimer(minutes: Int) = sleepTimer.start(minutes * 60_000L)
+    fun cancelTimer() = sleepTimer.cancel()
 
     fun story(storyId: String): BedtimeStory? = storyRepository.story(storyId)
 

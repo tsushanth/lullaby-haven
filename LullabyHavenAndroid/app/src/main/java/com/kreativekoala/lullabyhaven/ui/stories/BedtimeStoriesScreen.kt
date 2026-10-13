@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -34,15 +35,16 @@ fun BedtimeStoriesScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    Scaffold(
-        topBar = { TopAppBar(title = { Text("Bedtime Stories") }) }
-    ) { padding ->
+    Column(Modifier.fillMaxSize()) {
+        Text(
+            "Bedtime Stories",
+            style = androidx.compose.material3.MaterialTheme.typography.headlineLarge,
+            modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 24.dp)
+        )
         LazyColumn(
-            contentPadding = PaddingValues(16.dp),
+            contentPadding = PaddingValues(20.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(padding)
+            modifier = Modifier.fillMaxSize()
         ) {
             items(uiState.stories, key = { it.id }) { story ->
                 StoryCard(
@@ -66,7 +68,7 @@ private fun StoryCard(
     Card(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
+        colors = CardDefaults.cardColors(containerColor = androidx.compose.material3.MaterialTheme.colorScheme.surface)
     ) {
         Row(
             modifier = Modifier

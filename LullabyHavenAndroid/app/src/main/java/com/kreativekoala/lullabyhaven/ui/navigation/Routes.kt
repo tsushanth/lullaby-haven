@@ -1,7 +1,8 @@
 package com.kreativekoala.lullabyhaven.ui.navigation
 
 object Routes {
-    const val HOME = "home"
+    const val HOME = "home"          // "Tonight" tab
+    const val SOUNDS = "sounds"
     const val STORIES = "stories"
     const val STORY_PLAYER = "story_player/{storyId}"
     const val MY_VOICE = "my_voice"
