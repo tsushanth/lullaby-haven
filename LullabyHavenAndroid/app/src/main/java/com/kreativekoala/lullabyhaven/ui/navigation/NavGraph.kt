@@ -55,6 +55,7 @@ fun LullabyHavenNavGraph(navController: NavHostController = rememberNavControlle
     }
 
     Scaffold(
+        contentWindowInsets = androidx.compose.foundation.layout.WindowInsets(0, 0, 0, 0),
         bottomBar = {
             if (showBar) {
                 NavigationBar {

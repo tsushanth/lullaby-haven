@@ -2,6 +2,8 @@ package com.kreativekoala.lullabyhaven.player
 
 import android.content.ComponentName
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import androidx.media3.common.AudioAttributes
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem
@@ -55,10 +57,23 @@ class PlayerManager @Inject constructor(
     private var controller: MediaController? = null
     private var masterGain = 1f
 
+    private val handler = Handler(Looper.getMainLooper())
+    private val ticker = object : Runnable {
+        override fun run() {
+            _state.value = _state.value.copy(
+                positionMs = player.currentPosition.coerceAtLeast(0L),
+                durationMs = player.duration.coerceAtLeast(0L)
+            )
+            if (player.isPlaying) handler.postDelayed(this, 500)
+        }
+    }
+
     init {
         player.addListener(object : Player.Listener {
             override fun onIsPlayingChanged(isPlaying: Boolean) {
                 _state.value = _state.value.copy(isPlaying = isPlaying)
+                handler.removeCallbacks(ticker)
+                if (isPlaying) handler.post(ticker)
             }
 
             override fun onEvents(p: Player, events: Player.Events) {
