@@ -48,6 +48,12 @@
             </intent-filter>
         </service>
 
+        <!-- Foreground service that keeps the synthesized sleep-sound mixer playing -->
+        <service
+            android:name=".player.SoundService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
     </application>
 
 </manifest>
