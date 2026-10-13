@@ -1,0 +1,4 @@
+New night-light look with Tonight, Sounds and Stories tabs.
+Mix calming sounds (white noise, rain, ocean, heartbeat, music box) with a sleep timer that fades everything out.
+Stories keep playing with the screen off and show controls on the lock screen. Narration is saved so stories play offline.
+Fixes dark mode and removes an unused microphone permission.
