@@ -26,9 +26,12 @@ class StoryNarrationRepository @Inject constructor(
     /** Default Kokoro voice: "Bella" (af_bella) -- calm & soothing, a good bedtime-story fit. */
     private val defaultVoiceId = "af_bella"
 
+    /** filesDir (not cacheDir) so the system cannot purge narration; keeps stories playable offline. */
+    private fun narrationDir() = File(context.filesDir, "narration").apply { mkdirs() }
+
     suspend fun narrationFor(storyId: String, text: String): Result<File> = withContext(Dispatchers.IO) {
         runCatching {
-            val cacheFile = File(context.cacheDir, "narration_${storyId}_$defaultVoiceId.mp3")
+            val cacheFile = File(narrationDir(), "narration_${storyId}_$defaultVoiceId.mp3")
             if (cacheFile.exists() && cacheFile.length() > 0) {
                 return@runCatching cacheFile
             }

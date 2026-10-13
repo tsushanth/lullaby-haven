@@ -78,7 +78,7 @@ class StoryPlayerViewModel @Inject constructor(
             narrationRepository.narrationFor(storyId, story.body)
                 .onSuccess { file ->
                     _narrationState.value = NarrationUiState(NarrationStatus.READY)
-                    playerManager.play(storyId, file.toURI().toString())
+                    playerManager.play(storyId, file.toURI().toString(), story.title)
                 }
                 .onFailure { e ->
                     _narrationState.value = NarrationUiState(

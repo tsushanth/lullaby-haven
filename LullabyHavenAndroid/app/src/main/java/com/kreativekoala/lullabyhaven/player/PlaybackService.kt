@@ -5,7 +5,11 @@ import androidx.media3.session.MediaSessionService
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-/** Keeps story/sound playback alive in the background (screen off / app backgrounded). */
+/**
+ * Exposes the shared story player as a MediaSession: lock-screen controls, notification, and
+ * background playback. The player itself is owned by [PlayerManager] (a singleton), so this
+ * service must NOT release it, otherwise the next playback would hit a released player.
+ */
 @AndroidEntryPoint
 class PlaybackService : MediaSessionService() {
 
@@ -21,12 +25,14 @@ class PlaybackService : MediaSessionService() {
 
     override fun onGetSession(controllerInfo: MediaSession.ControllerInfo): MediaSession? = mediaSession
 
+    override fun onTaskRemoved(rootIntent: android.content.Intent?) {
+        // Swiped away from recents: keep narrating only if it is actually playing.
+        if (!playerManager.player.playWhenReady) stopSelf()
+    }
+
     override fun onDestroy() {
-        mediaSession?.run {
-            player.release()
-            release()
-            mediaSession = null
-        }
+        mediaSession?.release()
+        mediaSession = null
         super.onDestroy()
     }
 }

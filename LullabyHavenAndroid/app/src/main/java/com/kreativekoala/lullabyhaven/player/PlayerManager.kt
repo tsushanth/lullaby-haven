@@ -1,9 +1,16 @@
 package com.kreativekoala.lullabyhaven.player
 
+import android.content.ComponentName
 import android.content.Context
+import androidx.media3.common.AudioAttributes
+import androidx.media3.common.C
 import androidx.media3.common.MediaItem
+import androidx.media3.common.MediaMetadata
 import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.session.MediaController
+import androidx.media3.session.SessionToken
+import com.google.common.util.concurrent.MoreExecutors
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -19,23 +26,34 @@ data class PlaybackState(
 )
 
 /**
- * Real ExoPlayer-backed playback controller, shared across the story player and mixer/sound
- * screens (Views/BedtimeStories/StoryPlayerView.swift + Views/SoundPlayerView.swift on iOS).
+ * ExoPlayer-backed playback controller for narrated stories. It owns the single player
+ * instance; [PlaybackService] only wraps it in a MediaSession and must never release it.
  *
- * The transport itself (play/pause/seek/duration/position) is fully functional. What's stubbed
- * is the *source*: narrated-story audio comes from the TTS job backend (POST /api/tts/job-cloned,
- * then poll GET /api/tts/job/{id} for the resulting audio_url) which isn't wired up yet -- see
- * StoryPlayerViewModel TODO. Call [play] with any playable URI (including a bundled raw resource)
- * to exercise the transport today.
+ * Audio focus and "becoming noisy" (headphones unplugged) are handled by ExoPlayer itself.
+ * Calling [play] also connects a MediaController to [PlaybackService], which binds the service
+ * so Media3 can promote it to the foreground with a lock-screen / notification player.
  */
 @Singleton
 class PlayerManager @Inject constructor(
-    @ApplicationContext context: Context
+    @ApplicationContext private val context: Context
 ) {
-    val player: ExoPlayer = ExoPlayer.Builder(context).build()
+    val player: ExoPlayer = ExoPlayer.Builder(context)
+        .setAudioAttributes(
+            AudioAttributes.Builder()
+                .setUsage(C.USAGE_MEDIA)
+                .setContentType(C.AUDIO_CONTENT_TYPE_SPEECH)
+                .build(),
+            /* handleAudioFocus = */ true
+        )
+        .setHandleAudioBecomingNoisy(true)
+        .setWakeMode(C.WAKE_MODE_LOCAL)
+        .build()
 
     private val _state = MutableStateFlow(PlaybackState())
     val state: StateFlow<PlaybackState> = _state.asStateFlow()
+
+    private var controller: MediaController? = null
+    private var masterGain = 1f
 
     init {
         player.addListener(object : Player.Listener {
@@ -52,9 +70,25 @@ class PlayerManager @Inject constructor(
         })
     }
 
-    fun play(storyId: String, uri: String) {
+    private fun connectToService() {
+        if (controller != null) return
+        val token = SessionToken(context, ComponentName(context, PlaybackService::class.java))
+        val future = MediaController.Builder(context, token).buildAsync()
+        future.addListener({
+            controller = runCatching { future.get() }.getOrNull()
+        }, MoreExecutors.directExecutor())
+    }
+
+    fun play(storyId: String, uri: String, title: String? = null) {
+        connectToService()
         if (_state.value.currentStoryId != storyId) {
-            player.setMediaItem(MediaItem.fromUri(uri))
+            val item = MediaItem.Builder()
+                .setUri(uri)
+                .setMediaMetadata(
+                    MediaMetadata.Builder().setTitle(title).setArtist("Lullaby Haven").build()
+                )
+                .build()
+            player.setMediaItem(item)
             player.prepare()
             _state.value = _state.value.copy(currentStoryId = storyId)
         }
@@ -69,8 +103,16 @@ class PlayerManager @Inject constructor(
 
     fun seekTo(positionMs: Long) = player.seekTo(positionMs)
 
+    /** Master gain 0..1 used by the sleep timer fade-out. */
+    fun setMasterGain(gain: Float) {
+        masterGain = gain.coerceIn(0f, 1f)
+        player.volume = masterGain
+    }
+
     fun stop() {
         player.stop()
+        player.clearMediaItems()
+        player.volume = 1f
         _state.value = PlaybackState()
     }
 }
