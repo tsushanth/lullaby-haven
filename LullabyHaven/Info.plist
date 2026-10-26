@@ -62,7 +62,7 @@
 
 	<!-- Privacy descriptions -->
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Lullaby Haven does not use the microphone.</string>
+	<string>Lullaby Haven uses the microphone to record a short voice sample so lullabies can be narrated in your own voice.</string>
 
 	<!-- Minimum iOS version -->
 	<key>MinimumOSVersion</key>
