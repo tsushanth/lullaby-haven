@@ -1,11 +1,10 @@
-Lullaby Haven is a calm, simple bedtime story app for kids and the grown-ups who read with them.
+Lullaby Haven is a small library of calm, original bedtime stories, narrated and ready to play. No screens full of ads, no complicated setup — pick a story and press play.
 
-Browse a library of original bedtime stories, each with a short summary, an age range, and an estimated reading time so you can pick the right story for how much time you have. Tap a story to hear it narrated aloud, or read along with the full text on screen. Playback includes a scrubber so you can jump back to a favorite part or pick up where you left off.
+FEATURES
+- A growing library of original bedtime stories, each with an age range and estimated length so you know what you're picking before you start
+- Real narration for every story, streamed and ready to play in seconds
+- Simple playback controls — play, pause, and a progress bar so you always know where you left off
+- Save your favorites so the stories your family loves are easy to find again
+- No account required, no sign-up
 
-Save the stories your family loves to Favorites so they're easy to find again at bedtime.
-
-Narration is generated server-side and streamed to the app, so voices sound natural rather than robotic. If narration for a story isn't available right when you need it, the app tells you honestly instead of pretending to play something that isn't there.
-
-Lullaby Haven is free to use, with no account required to start listening.
-
-More features, including additional story packs, are on the way.
+Whether it's the same three books every night or you're looking for something new to add to the rotation, Lullaby Haven keeps bedtime simple: pick a story, press play, wind down.
