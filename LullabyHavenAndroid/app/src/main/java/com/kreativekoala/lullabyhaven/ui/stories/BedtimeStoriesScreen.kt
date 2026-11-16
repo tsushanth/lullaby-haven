@@ -1,6 +1,9 @@
 @file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 package com.kreativekoala.lullabyhaven.ui.stories
 
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.stringResource
+import com.kreativekoala.lullabyhaven.R
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -37,10 +40,19 @@ fun BedtimeStoriesScreen(
 
     Column(Modifier.fillMaxSize()) {
         Text(
-            "Bedtime Stories",
+            stringResource(R.string.stories_title),
             style = androidx.compose.material3.MaterialTheme.typography.headlineLarge,
             modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 24.dp)
         )
+        // Story text and narration are English only; say so in any other language.
+        if (LocalConfiguration.current.locales[0].language != "en") {
+            Text(
+                stringResource(R.string.stories_english_only),
+                style = androidx.compose.material3.MaterialTheme.typography.bodyMedium,
+                color = androidx.compose.material3.MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 4.dp)
+            )
+        }
         LazyColumn(
             contentPadding = PaddingValues(20.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -80,14 +92,18 @@ private fun StoryCard(
                 Text(story.title, style = androidx.compose.material3.MaterialTheme.typography.titleLarge)
                 Text(story.summary, style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
                 Text(
-                    "${story.ageRangeDescription} · ${story.estimatedMinutes} min",
+                    stringResource(
+                        R.string.story_age_duration,
+                        stringResource(R.string.story_age_range, story.minAge, story.maxAge),
+                        story.estimatedMinutes
+                    ),
                     style = androidx.compose.material3.MaterialTheme.typography.labelSmall
                 )
             }
             IconButton(onClick = onToggleFavorite) {
                 Icon(
                     imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder,
-                    contentDescription = if (isFavorite) "Remove favorite" else "Add favorite"
+                    contentDescription = stringResource(if (isFavorite) R.string.favorite_remove else R.string.favorite_add)
                 )
             }
         }

@@ -46,7 +46,7 @@ class SoundService : Service() {
         registerReceiver(noisyReceiver, IntentFilter(AudioManager.ACTION_AUDIO_BECOMING_NOISY))
         val nm = getSystemService(NotificationManager::class.java)
         nm.createNotificationChannel(
-            NotificationChannel(CHANNEL, "Sleep sounds", NotificationManager.IMPORTANCE_LOW)
+            NotificationChannel(CHANNEL, getString(R.string.notif_channel_name), NotificationManager.IMPORTANCE_LOW)
         )
     }
 
@@ -79,13 +79,13 @@ class SoundService : Service() {
         )
         return NotificationCompat.Builder(this, CHANNEL)
             .setSmallIcon(R.drawable.ic_stat_moon)
-            .setContentTitle("Lullaby Haven")
-            .setContentText("Playing sleep sounds")
+            .setContentTitle(getString(R.string.app_name))
+            .setContentText(getString(R.string.notif_playing))
             .setContentIntent(open)
             .setOngoing(true)
             .setSilent(true)
             .setCategory(NotificationCompat.CATEGORY_TRANSPORT)
-            .addAction(0, "Stop", stop)
+            .addAction(0, getString(R.string.notif_stop), stop)
             .build()
     }
 

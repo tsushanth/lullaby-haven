@@ -14,9 +14,6 @@ data class BedtimeStory(
     val maxAge: Int,
     val estimatedMinutes: Int
 ) {
-    val ageRangeDescription: String
-        get() = "Ages $minAge–$maxAge"
-
     companion object {
         /**
          * Same 6 originals as iOS BedtimeStory.allStories. Kept local (no backend call)

@@ -1,6 +1,8 @@
 @file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 package com.kreativekoala.lullabyhaven.ui.stories
 
+import androidx.compose.ui.res.stringResource
+import com.kreativekoala.lullabyhaven.R
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -62,10 +64,10 @@ fun StoryPlayerScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(story?.title ?: "Story") },
+                title = { Text(story?.title ?: stringResource(R.string.story_default_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_cd))
                     }
                 }
             )
@@ -92,14 +94,14 @@ fun StoryPlayerScreen(
                 NarrationStatus.LOADING -> {
                     CircularProgressIndicator(modifier = Modifier.padding(top = 24.dp))
                     Text(
-                        "Preparing narration…",
+                        stringResource(R.string.narration_preparing),
                         style = MaterialTheme.typography.bodyMedium,
                         modifier = Modifier.padding(top = 8.dp)
                     )
                 }
                 NarrationStatus.FAILED -> {
                     Text(
-                        "Narration coming soon — we couldn't reach the narration service right now.",
+                        stringResource(R.string.narration_unavailable),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.error,
                         modifier = Modifier.padding(top = 24.dp)
@@ -128,12 +130,12 @@ fun StoryPlayerScreen(
                     ) {
                         Icon(
                             imageVector = if (playbackState.isPlaying) Icons.Filled.Pause else Icons.Filled.PlayArrow,
-                            contentDescription = if (playbackState.isPlaying) "Pause" else "Play",
+                            contentDescription = stringResource(if (playbackState.isPlaying) R.string.action_pause else R.string.action_play),
                             modifier = Modifier.size(40.dp)
                         )
                     }
                     Text(
-                        if (timer.active) "Sleep timer: ${formatCountdown(timer.remainingMs)}" else "Sleep timer",
+                        if (timer.active) stringResource(R.string.timer_remaining, formatCountdown(timer.remainingMs)) else stringResource(R.string.timer_dial_title),
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.padding(top = 16.dp)
@@ -146,11 +148,11 @@ fun StoryPlayerScreen(
                             FilterChip(
                                 selected = timer.active && timer.totalMs == m * 60_000L,
                                 onClick = { viewModel.startTimer(m) },
-                                label = { Text("$m min") }
+                                label = { Text(stringResource(R.string.timer_minutes, m)) }
                             )
                         }
                         if (timer.active) {
-                            OutlinedButton(onClick = viewModel::cancelTimer) { Text("Off") }
+                            OutlinedButton(onClick = viewModel::cancelTimer) { Text(stringResource(R.string.timer_off)) }
                         }
                     }
                 }
