@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lullaby Haven</string>
+    <string name="app_name" translatable="false">Lullaby Haven</string>
     <string name="tab_tonight">Tonight</string>
     <string name="tab_sounds">Sounds</string>
     <string name="tab_stories">Stories</string>
