@@ -1,5 +1,7 @@
 package com.kreativekoala.lullabyhaven.ui.night
 
+import androidx.compose.ui.res.stringResource
+import com.kreativekoala.lullabyhaven.R
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,7 +34,11 @@ fun formatCountdown(ms: Long): String {
 fun TimerDial(active: Boolean, fraction: Float, remainingMs: Long, modifier: Modifier = Modifier) {
     val track = MaterialTheme.colorScheme.surfaceVariant
     val glow = MaterialTheme.colorScheme.primary
-    val label = if (active) "Sleep timer, ${formatCountdown(remainingMs)} left" else "Sleep timer off"
+    val label = if (active) {
+        stringResource(R.string.timer_dial_cd_active, formatCountdown(remainingMs))
+    } else {
+        stringResource(R.string.timer_dial_cd_off)
+    }
     Box(
         modifier = modifier
             .size(220.dp)
@@ -51,12 +57,12 @@ fun TimerDial(active: Boolean, fraction: Float, remainingMs: Long, modifier: Mod
         }
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text(
-                if (active) formatCountdown(remainingMs) else "Sleep timer",
+                if (active) formatCountdown(remainingMs) else stringResource(R.string.timer_dial_title),
                 style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.onBackground
             )
             Text(
-                if (active) "fades out gently" else "choose below",
+                stringResource(if (active) R.string.timer_dial_fades else R.string.timer_dial_choose),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )

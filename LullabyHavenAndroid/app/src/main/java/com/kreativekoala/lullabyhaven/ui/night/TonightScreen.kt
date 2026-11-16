@@ -1,6 +1,8 @@
 @file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class, androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 package com.kreativekoala.lullabyhaven.ui.night
 
+import androidx.compose.ui.res.stringResource
+import com.kreativekoala.lullabyhaven.R
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
@@ -49,12 +51,12 @@ fun TonightScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            "Goodnight",
+            stringResource(R.string.tonight_title),
             style = MaterialTheme.typography.headlineLarge,
             modifier = Modifier.fillMaxWidth()
         )
         Text(
-            "Set the timer, add a sound, or pick a story.",
+            stringResource(R.string.tonight_subtitle),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.fillMaxWidth()
@@ -72,13 +74,13 @@ fun TonightScreen(
                 FilterChip(
                     selected = timer.active && timer.totalMs == m * 60_000L,
                     onClick = { viewModel.startTimer(m) },
-                    label = { Text("$m min") }
+                    label = { Text(stringResource(R.string.timer_minutes, m)) }
                 )
             }
         }
         if (timer.active) {
             OutlinedButton(onClick = viewModel::cancelTimer, modifier = Modifier.padding(top = 8.dp)) {
-                Text("Cancel timer")
+                Text(stringResource(R.string.timer_cancel))
             }
         }
         Spacer(Modifier.height(24.dp))
@@ -88,24 +90,24 @@ fun TonightScreen(
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
         ) {
             Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Text("Sounds", style = MaterialTheme.typography.titleLarge)
-                val names = mix.activeKinds.joinToString(" + ") { it.label }
+                Text(stringResource(R.string.tab_sounds), style = MaterialTheme.typography.titleLarge)
+                val names = mix.activeKinds.map { stringResource(it.labelRes) }.joinToString(" + ")
                 Text(
-                    if (names.isEmpty()) "Nothing mixed yet." else names,
+                    if (names.isEmpty()) stringResource(R.string.sounds_empty) else names,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 if (mix.activeKinds.isEmpty()) {
-                    Button(onClick = onOpenSounds) { Text("Choose sounds") }
+                    Button(onClick = onOpenSounds) { Text(stringResource(R.string.sounds_choose)) }
                 } else {
                     Button(onClick = viewModel::togglePlayback) {
                         Icon(
                             if (mix.isPlaying) Icons.Filled.Pause else Icons.Filled.PlayArrow,
                             contentDescription = null
                         )
-                        Text(if (mix.isPlaying) "Pause" else "Play", modifier = Modifier.padding(start = 8.dp))
+                        Text(stringResource(if (mix.isPlaying) R.string.action_pause else R.string.action_play), modifier = Modifier.padding(start = 8.dp))
                     }
-                    OutlinedButton(onClick = onOpenSounds) { Text("Adjust mix") }
+                    OutlinedButton(onClick = onOpenSounds) { Text(stringResource(R.string.sounds_adjust)) }
                 }
             }
         }
@@ -116,9 +118,9 @@ fun TonightScreen(
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
         ) {
             Column(Modifier.padding(16.dp)) {
-                Text("Bedtime stories", style = MaterialTheme.typography.titleLarge)
+                Text(stringResource(R.string.tonight_stories_title), style = MaterialTheme.typography.titleLarge)
                 Text(
-                    "Calm original stories, narrated and ready to play.",
+                    stringResource(R.string.tonight_stories_blurb),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

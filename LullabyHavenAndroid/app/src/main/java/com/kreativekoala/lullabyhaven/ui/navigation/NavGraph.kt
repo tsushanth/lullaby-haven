@@ -1,5 +1,8 @@
 package com.kreativekoala.lullabyhaven.ui.navigation
 
+import androidx.compose.ui.res.stringResource
+import com.kreativekoala.lullabyhaven.R
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -29,12 +32,12 @@ import com.kreativekoala.lullabyhaven.ui.sounds.SoundsScreen
 import com.kreativekoala.lullabyhaven.ui.stories.BedtimeStoriesScreen
 import com.kreativekoala.lullabyhaven.ui.stories.StoryPlayerScreen
 
-private data class Tab(val route: String, val label: String, val icon: ImageVector)
+private data class Tab(val route: String, @StringRes val labelRes: Int, val icon: ImageVector)
 
 private val TABS = listOf(
-    Tab(Routes.HOME, "Tonight", Icons.Filled.NightsStay),
-    Tab(Routes.SOUNDS, "Sounds", Icons.Filled.GraphicEq),
-    Tab(Routes.STORIES, "Stories", Icons.Filled.AutoStories)
+    Tab(Routes.HOME, R.string.tab_tonight, Icons.Filled.NightsStay),
+    Tab(Routes.SOUNDS, R.string.tab_sounds, Icons.Filled.GraphicEq),
+    Tab(Routes.STORIES, R.string.tab_stories, Icons.Filled.AutoStories)
 )
 
 /**
@@ -64,7 +67,7 @@ fun LullabyHavenNavGraph(navController: NavHostController = rememberNavControlle
                             selected = current == tab.route,
                             onClick = { goTab(tab.route) },
                             icon = { Icon(tab.icon, contentDescription = null) },
-                            label = { Text(tab.label) }
+                            label = { Text(stringResource(tab.labelRes)) }
                         )
                     }
                 }

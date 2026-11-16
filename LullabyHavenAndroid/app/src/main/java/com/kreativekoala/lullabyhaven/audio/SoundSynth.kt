@@ -1,5 +1,7 @@
 package com.kreativekoala.lullabyhaven.audio
 
+import com.kreativekoala.lullabyhaven.R
+import androidx.annotation.StringRes
 import kotlin.math.PI
 import kotlin.math.exp
 import kotlin.math.max
@@ -8,15 +10,15 @@ import kotlin.math.pow
 import kotlin.math.sin
 import kotlin.random.Random
 
-enum class SoundKind(val label: String, val blurb: String, val loopSeconds: Int) {
-    WHITE("White noise", "Even, steady hush", 8),
-    PINK("Pink noise", "Softer, like distant wind", 8),
-    BROWN("Brown noise", "Deep, warm rumble", 8),
-    RAIN("Rain", "Gentle rainfall", 10),
-    OCEAN("Ocean", "Slow rolling waves", 12),
-    FAN("Fan", "Low room hum", 8),
-    HEARTBEAT("Heartbeat", "Calm 70 bpm pulse", 12),
-    MUSIC_BOX("Music box", "Slow lullaby chimes", 24);
+enum class SoundKind(@StringRes val labelRes: Int, @StringRes val blurbRes: Int, val loopSeconds: Int) {
+    WHITE(R.string.sound_white_label, R.string.sound_white_blurb, 8),
+    PINK(R.string.sound_pink_label, R.string.sound_pink_blurb, 8),
+    BROWN(R.string.sound_brown_label, R.string.sound_brown_blurb, 8),
+    RAIN(R.string.sound_rain_label, R.string.sound_rain_blurb, 10),
+    OCEAN(R.string.sound_ocean_label, R.string.sound_ocean_blurb, 12),
+    FAN(R.string.sound_fan_label, R.string.sound_fan_blurb, 8),
+    HEARTBEAT(R.string.sound_heartbeat_label, R.string.sound_heartbeat_blurb, 12),
+    MUSIC_BOX(R.string.sound_music_box_label, R.string.sound_music_box_blurb, 24);
 }
 
 /**

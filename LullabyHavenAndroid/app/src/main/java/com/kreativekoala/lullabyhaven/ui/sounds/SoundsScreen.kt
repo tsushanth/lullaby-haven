@@ -1,6 +1,8 @@
 @file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 package com.kreativekoala.lullabyhaven.ui.sounds
 
+import androidx.compose.ui.res.stringResource
+import com.kreativekoala.lullabyhaven.R
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -46,9 +48,9 @@ fun SoundsScreen(viewModel: NightViewModel = hiltViewModel()) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Column(Modifier.weight(1f)) {
-                Text("Sounds", style = MaterialTheme.typography.headlineLarge)
+                Text(stringResource(R.string.tab_sounds), style = MaterialTheme.typography.headlineLarge)
                 Text(
-                    "Layer as many as you like. Made on your device, no internet needed.",
+                    stringResource(R.string.sounds_subtitle),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -57,7 +59,7 @@ fun SoundsScreen(viewModel: NightViewModel = hiltViewModel()) {
                 FilledIconButton(onClick = viewModel::togglePlayback) {
                     Icon(
                         if (mix.isPlaying) Icons.Filled.Pause else Icons.Filled.PlayArrow,
-                        contentDescription = if (mix.isPlaying) "Pause sounds" else "Play sounds"
+                        contentDescription = stringResource(if (mix.isPlaying) R.string.sounds_pause_cd else R.string.sounds_play_cd)
                     )
                 }
             }
@@ -83,12 +85,16 @@ fun SoundsScreen(viewModel: NightViewModel = hiltViewModel()) {
 @Composable
 private fun SoundCard(kind: SoundKind, level: Float?, onToggle: () -> Unit, onLevel: (Float) -> Unit) {
     val on = level != null
+    val kindLabel = stringResource(kind.labelRes)
+    val stateLabel = stringResource(if (on) R.string.sound_on else R.string.sound_off)
+    val stateCd = stringResource(R.string.sound_state_cd, kindLabel, stateLabel)
+    val volumeCd = stringResource(R.string.sound_volume_cd, kindLabel)
     Card(
         onClick = onToggle,
         modifier = Modifier
             .fillMaxWidth()
             .semantics(mergeDescendants = false) {
-                contentDescription = "${kind.label}, ${if (on) "on" else "off"}"
+                contentDescription = stateCd
             },
         colors = CardDefaults.cardColors(
             containerColor = if (on) MaterialTheme.colorScheme.surfaceVariant else MaterialTheme.colorScheme.surface
@@ -97,15 +103,15 @@ private fun SoundCard(kind: SoundKind, level: Float?, onToggle: () -> Unit, onLe
         Column(Modifier.padding(16.dp)) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 Column(Modifier.weight(1f)) {
-                    Text(kind.label, style = MaterialTheme.typography.titleLarge)
+                    Text(kindLabel, style = MaterialTheme.typography.titleLarge)
                     Text(
-                        kind.blurb,
+                        stringResource(kind.blurbRes),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
                 Text(
-                    if (on) "On" else "Off",
+                    stateLabel,
                     style = MaterialTheme.typography.labelSmall,
                     color = if (on) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -117,7 +123,7 @@ private fun SoundCard(kind: SoundKind, level: Float?, onToggle: () -> Unit, onLe
                     valueRange = 0.05f..1f,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .semantics { contentDescription = "${kind.label} volume" }
+                        .semantics { contentDescription = volumeCd }
                 )
             }
         }
